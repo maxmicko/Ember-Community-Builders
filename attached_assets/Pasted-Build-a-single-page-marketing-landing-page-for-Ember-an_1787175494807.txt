@@ -1,0 +1,57 @@
+Build a single-page marketing landing page for Ember, an agency that finds and recovers "ghost members" for Skool community owners — members who still show up on the leaderboard but have quietly stopped engaging and are about to cancel.
+
+BRAND IDENTITY
+- Name: Ember. Tagline: "Don't lose the spark."
+- Visual theme: dark, warm "night cockpit" aesthetic — near-black background (#0D0D0D), warm amber/orange accent gradient (#FDE68A → #F59E0B → #C2410C), used sparingly and only as accent, never decoratively.
+- Logo mark: a nested hexagon with a glowing amber core (concentric hexagon rings, radial gradient center) — signifies an ember: still glowing, still warm, on the edge of going out. This visual metaphor should echo through the page (subtle glow effects, warm-to-fading gradients) without being on-the-nose.
+- Typography: Plus Jakarta Sans for headings (bold, tight letter-spacing), Inter for body text.
+- Tone: direct, concrete, zero jargon. No "retention," "churn," or "engagement" as headline language — use plain, visual, slightly blunt phrasing instead. No corporate SaaS voice, no exclamation-point energy, no stock photography.
+
+THE CORE INSIGHT (this is the entire positioning — build the page around it)
+Skool's leaderboard shows rank and points, not real activity. A member can sit at Level 5, ranked top 10%, with zero logins in 11 days — and still look "engaged" to the owner because the leaderboard is the de facto dashboard every owner checks. Ember exists to find the members who are still visible and ranked but already functionally gone — we call them "ghost members" — before they cancel.
+
+PAGE STRUCTURE (single page, sections in this order)
+
+1. HERO
+- Headline built on the core insight, e.g.: "Your leaderboard shows who's winning. It doesn't show who's already gone."
+- Subhead: one sentence stating the offer plainly — a free 7-day pass where we find your ghost members and hand you a report, zero effort on your end.
+- Single CTA button: "Find my ghost members" — routes to an email + Skool community URL capture form. No secondary links, no nav menu distracting from this one action.
+- No product screenshots, no dashboard UI, no software imagery anywhere on this page — the whole positioning depends on this being read as a diagnostic service performed by a person, not a tool the visitor would operate themselves.
+
+2. THE PROBLEM (visual/conceptual section)
+- Short section illustrating the leaderboard blind spot — e.g. a stylized "leaderboard" visual showing a member ranked normally but tagged with a subtle "last active: 11 days ago" marker the leaderboard itself would never show. This is the single most important visual on the page — it should make the insight click instantly without needing to read paragraphs.
+- One or two lines of copy underneath, plain and short.
+
+3. HOW IT WORKS (3 steps, zero-effort framing)
+- Step 1: You send the invite. Step 2: We run the 7-day pass — no setup, no software for you to touch. Step 3: You get the Ghost Member Report — who's actually at risk, and why.
+- Keep each step to one short line. No dashboard mockups.
+
+4. WHAT YOU GET (the deliverable, named specifically)
+- Introduce "The Ghost Member Report" as a named, specific artifact — not a generic audit.
+- List 3 things it contains: the headline ghost count ("X members are ghosting your leaderboard right now"), funnel leak points Skool's own signup flow doesn't surface, and a short set of specific recommendations.
+- No pricing here yet — this section is pure value, not the ask.
+
+5. PRICING (Ghost Recovery Pricing — the differentiator)
+- Explain plainly: free diagnostic, small base fee for ongoing monitoring, and a per-recovered-member fee only charged when a flagged member is confirmed active again. Frame this explicitly against generic flat-fee agencies: "You don't pay for busywork. You pay when we actually bring someone back."
+- Keep numbers as editable placeholders — this section needs real pricing filled in before launch.
+
+6. WHY EMBER (differentiation, not testimonials — none exist yet)
+- Short section on why this only works on Skool specifically (leaderboard mechanic doesn't exist elsewhere), founder-delivered service (not handed to a junior account manager), narrow scope (retention + funnel only, nothing else).
+- Do NOT include a testimonials section, fake logos, or placeholder client quotes — leave this section absent entirely rather than faked.
+
+7. FINAL CTA
+- Repeat the hero CTA verbatim: "Find my ghost members" → same capture form.
+- One line of urgency without manufacturing scarcity, e.g. referencing that spots for the free 7-day pass are limited to what one founder can personally run each week.
+
+TECHNICAL / FUNCTIONAL REQUIREMENTS
+- Single scrolling page, no multi-page nav.
+- One capture form (email + Skool community URL), appearing twice (hero + final CTA), both submitting to the same destination.
+- Fully responsive, mobile-first — most traffic will arrive from Instagram bio links and YouTube descriptions on mobile.
+- Fast load — minimal animation, no heavy hero video, subtle glow/gradient effects only.
+- No pricing calculator, no self-serve signup flow, no login — this page's only job is capturing a lead into the manual audit pipeline, not enabling self-service.
+
+WHAT TO AVOID
+- Any SaaS-style "start your free trial" self-serve language.
+- Any dashboard, extension UI, or software screenshot.
+- Any testimonial, review, or client logo that isn't real.
+- Generic retention/churn language as primary copy — lead with the ghost/leaderboard concept every time.
