@@ -1,0 +1,22 @@
+Here's the current, finalized set — the ghost-member reframe, not the earlier generic version.
+
+**Core USP (the one sentence everything hangs off):**
+> Ember hunts down the members your Skool leaderboard is hiding — the ones still ranked, still visible, already gone in every way that matters — and we only get paid when we bring them back.
+
+**Broken out by axis:**
+
+1. **Price** — Ghost Recovery Pricing: free diagnostic, small base fee for ongoing monitoring, and a bounty paid only when a flagged member is confirmed active again. You don't pay for busywork, only for people who actually come back — the only pricing model in the space where your incentive and theirs are mechanically identical.
+
+2. **Offering** — Deliberately narrow: retention + funnel, and nothing else, both viewed through one lens — what Skool's own dashboard hides from the owner. No service-menu sprawl.
+
+3. **Service** — Founder-delivered. Every audit, every report, every call — run by the person, not handed to a junior account manager.
+
+4. **Trust/credibility** — Built from specificity and transparent methodology, not testimonials. Backed by public teardown content that demonstrates the skill instead of just claiming it.
+
+5. **Branding** — "Ember" already is the concept: still glowing, still warm, about to go out — the exact state of a member before they're a "ghost." "Don't lose the spark" describes the mechanic, not just a tagline sitting next to it.
+
+6. **Specificity/niche** — Skool only, exploiting a mechanic (leaderboard rank ≠ real activity) that doesn't exist on Discord, Circle, or Mighty Networks. Non-transferable to a generic competitor.
+
+7. **Marketing** — The outreach performs the value prop instead of describing it. The "vanished" opener and the weekly teardown videos are demonstrations of the exact skill being sold: noticing what's hidden in plain sight.
+
+8. **Delivery** — A named, ownable artifact: the Ghost Member Report. Not "an audit," not "a report" — a specific thing only Ember delivers.
