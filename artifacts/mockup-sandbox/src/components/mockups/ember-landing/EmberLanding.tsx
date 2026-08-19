@@ -26,6 +26,27 @@ function Arrow({ dark = false }: { dark?: boolean }) {
   );
 }
 
+function SkoolMark() {
+  return (
+    <span className="skool-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="7" fill="currentColor" />
+        <path d="M7 7h6.2a3.8 3.8 0 0 1 0 7.6H10l3.7 3.4H9.9L7 15.25V7Z" fill="#201e1b" />
+        <path d="M10 9.6h3.15a1.2 1.2 0 0 1 0 2.4H10V9.6Z" fill="#f3ede4" />
+      </svg>
+    </span>
+  );
+}
+
+function SkoolContextBadge() {
+  return (
+    <span className="skool-context-badge">
+      <SkoolMark />
+      <span>Skool community context</span>
+    </span>
+  );
+}
+
 function CaptureForm({ compact = false }: { compact?: boolean }) {
   const [sent, setSent] = useState(false);
 
@@ -59,7 +80,7 @@ function CaptureForm({ compact = false }: { compact?: boolean }) {
         </label>
       </div>
       <button type="submit" className="ember-button">
-        Get the report <Arrow />
+        Get my Skool community report <Arrow />
       </button>
       <p className="capture-note">No call to book. No software to learn. Just a useful first look.</p>
     </form>
@@ -87,7 +108,7 @@ function Leaderboard() {
       <div className="leaderboard">
         <div className="leaderboard-head">
           <span>Founders Circle</span>
-          <span className="skool-chip"><i /> Skool community</span>
+          <span className="skool-chip"><SkoolMark /> <span>Skool community</span></span>
         </div>
         <div className="leaderboard-title">
           <div>
@@ -148,12 +169,17 @@ function EmberLandingStyles() {
     <style>{`
       @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
       :root { --ember-ink: #171615; --ember-paper: #f3ede4; --ember-paper-deep: #e8ddcf; --ember-orange: #f47730; --ember-gold: #e6a83d; --ember-muted: #948b80; --ember-line: rgba(243, 237, 228, .16); }
-      .ember-page { background: var(--ember-ink); color: var(--ember-paper); font-family: 'DM Sans', sans-serif; min-height: 100dvh; overflow: hidden; }
+      .ember-page { background: var(--ember-ink); color: var(--ember-paper); font-family: 'DM Sans', sans-serif; min-height: 100dvh; overflow-x: clip; }
       .ember-page *, .ember-page *::before, .ember-page *::after { box-sizing: border-box; }
       .ember-page::before { content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
-      .ember-shell { width: min(1180px, calc(100% - 64px)); margin: 0 auto; }
-      .ember-topbar { height: 84px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--ember-line); position: relative; z-index: 3; }
-      .ember-wordmark { display: inline-flex; align-items: center; gap: 12px; color: var(--ember-paper); text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.04em; }
+      .ember-shell { width: min(1180px, calc(100% - 48px)); max-width: 100%; margin: 0 auto; }
+      .ember-topbar { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid var(--ember-line); position: relative; z-index: 3; }
+      .ember-wordmark { display: inline-flex; align-items: center; gap: 12px; color: var(--ember-paper); text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.04em; min-width: 0; }
+      .ember-brand-copy { display: grid; gap: 2px; line-height: 1; }
+      .ember-brand-copy small { color: #9a9085; font: 9px 'DM Mono', monospace; letter-spacing: .02em; white-space: nowrap; }
+      .skool-context-badge { display: inline-flex; align-items: center; gap: 8px; color: #c4b9ac; border: 1px solid #45413c; border-radius: 999px; padding: 6px 11px 6px 7px; font: 10px 'DM Mono', monospace; white-space: nowrap; margin-left: auto; }
+      .skool-mark { display: inline-flex; width: 20px; height: 20px; flex: 0 0 20px; color: var(--ember-orange); }
+      .skool-mark svg { width: 100%; height: 100%; }
       .top-cta { color: var(--ember-paper); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; font-size: 13px; border-bottom: 1px solid var(--ember-orange); padding: 5px 0 6px; transition: color .25s ease, border-color .25s ease; }
       .top-cta:hover { color: var(--ember-orange); border-color: var(--ember-paper); }
       .ember-mark { width: 34px; height: 38px; position: relative; display: inline-block; filter: drop-shadow(0 0 11px rgba(244,119,48,.2)); }
@@ -167,7 +193,7 @@ function EmberLandingStyles() {
       .ember-mark__crop img { position: absolute; width: 540px; max-width: none; left: -253px; top: -15px; }
       .ember-hero { position: relative; padding: 108px 0 122px; }
       .ember-hero::after { content: ""; position: absolute; width: 590px; height: 590px; right: -230px; top: -90px; background: radial-gradient(circle, rgba(244,119,48,.22) 0%, rgba(207,113,35,.08) 33%, transparent 69%); pointer-events: none; }
-      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.07fr) minmax(410px, .93fr); align-items: center; gap: 78px; position: relative; z-index: 1; }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.07fr) minmax(0, .93fr); align-items: center; gap: clamp(38px, 6vw, 78px); position: relative; z-index: 1; }
       .eyebrow { color: var(--ember-orange); font: 500 11px/1.2 'DM Mono', monospace; letter-spacing: .15em; text-transform: uppercase; margin: 0 0 28px; }
       .eyebrow--light { color: var(--ember-gold); }
       .hero-title { font: 600 clamp(48px, 6vw, 86px)/.98 'Space Grotesk', sans-serif; letter-spacing: -.075em; margin: 0; max-width: 720px; }
@@ -175,7 +201,7 @@ function EmberLandingStyles() {
       .hero-title em::after { content: ""; position: absolute; left: 2px; right: -8px; bottom: -9px; height: 9px; background: url("data:image/svg+xml,%3Csvg width='200' height='12' viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8C55 3 126 10 198 3' stroke='%23F47730' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat; transform: rotate(-1deg); }
       .hero-deck { max-width: 500px; color: #c1b7aa; font-size: 17px; line-height: 1.65; margin: 38px 0 35px; }
       .capture-form { max-width: 660px; }
-      .capture-fields { display: grid; grid-template-columns: 1fr 1.22fr; gap: 10px; }
+      .capture-fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr); gap: 10px; }
       .capture-form label { display: block; }
       .capture-form label > span { display: block; color: #928a81; font: 10px 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 8px 2px; }
       .capture-form input { width: 100%; height: 54px; border: 1px solid #4d4944; background: #22201e; color: var(--ember-paper); border-radius: 2px; padding: 0 15px; outline: none; font: 14px 'DM Sans', sans-serif; transition: border-color .2s ease, background .2s ease; }
@@ -214,8 +240,8 @@ function EmberLandingStyles() {
       .leaderboard-wrap { max-width: 1050px; margin: 0 auto; position: relative; padding: 0 40px; }
       .leaderboard { background: #fffaf4; border: 1px solid #d9cec0; box-shadow: 16px 16px 0 #e2d5c6; position: relative; transform: rotate(-1deg); }
       .leaderboard-head { height: 49px; border-bottom: 1px solid #e7ddd2; display: flex; justify-content: space-between; align-items: center; padding: 0 24px; color: #898078; font: 11px 'DM Mono', monospace; }
-      .skool-chip { color: #82786e; border: 1px solid #e1d7cd; padding: 6px 10px; border-radius: 99px; font-size: 9px; letter-spacing: .03em; }
-      .skool-chip i { display: inline-block; width: 6px; height: 6px; background: #d3c3b1; border-radius: 50%; margin-right: 6px; }
+      .skool-chip { color: #665d55; border: 1px solid #e1d7cd; padding: 5px 10px 5px 6px; display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; font-size: 9px; letter-spacing: .03em; }
+      .skool-chip .skool-mark { width: 17px; height: 17px; flex-basis: 17px; color: #e6a83d; }
       .leaderboard-title { display: flex; align-items: center; justify-content: space-between; padding: 25px 29px 16px; }
       .tiny-label { display: block; color: #a69c92; font: 9px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 7px; }
       .leaderboard-title strong { font: 600 23px 'Space Grotesk', sans-serif; letter-spacing: -.04em; }
@@ -223,7 +249,7 @@ function EmberLandingStyles() {
       .leaderboard-tabs { display: flex; gap: 25px; padding: 0 29px 13px; border-bottom: 1px solid #e9e0d7; color: #aaa096; font: 11px 'DM Mono', monospace; }
       .leaderboard-tabs .tab-active { color: #4f4840; border-bottom: 2px solid var(--ember-orange); padding-bottom: 12px; margin-bottom: -14px; }
       .leaderboard-rows { padding: 5px 17px; }
-      .member-row { display: grid; grid-template-columns: 34px 34px 1fr 100px 120px; gap: 15px; align-items: center; min-height: 63px; border-bottom: 1px solid #eee6dd; padding: 0 12px; color: #37312b; }
+      .member-row { display: grid; grid-template-columns: minmax(0, 34px) minmax(0, 34px) minmax(0, 1fr) minmax(0, 100px) minmax(0, 120px); gap: 15px; align-items: center; min-height: 63px; border-bottom: 1px solid #eee6dd; padding: 0 12px; color: #37312b; }
       .member-row:last-child { border-bottom: 0; }
       .member-row--quiet { background: #fef0e7; border: 1px solid #f9c6a4; margin: 1px -1px; position: relative; }
       .member-rank { color: #a79c90; font: 11px 'DM Mono', monospace; }
@@ -242,7 +268,7 @@ function EmberLandingStyles() {
       .steps-section .section-title { color: var(--ember-paper); max-width: 650px; }
       .steps-header { display: flex; justify-content: space-between; align-items: end; border-bottom: 1px solid var(--ember-line); padding-bottom: 52px; }
       .steps-header-copy { max-width: 270px; color: #978c80; font-size: 14px; line-height: 1.55; margin: 0 0 4px; }
-      .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+      .steps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
       .step { padding: 47px 42px 0 0; min-height: 240px; border-right: 1px solid var(--ember-line); position: relative; }
       .step + .step { padding-left: 42px; } .step:last-child { border-right: 0; }
       .step-number { display: block; color: var(--ember-orange); font: 11px 'DM Mono', monospace; margin-bottom: 36px; }
@@ -252,8 +278,8 @@ function EmberLandingStyles() {
       .report-section { padding: 145px 0 155px; }
       .report-intro { max-width: 560px; margin-bottom: 68px; }
       .report-intro p:not(.eyebrow) { max-width: 470px; color: #746c64; font-size: 16px; line-height: 1.65; margin: 28px 0 0; }
-      .report-layout { display: grid; grid-template-columns: 1fr .88fr; gap: 94px; align-items: center; }
-      .report-sheet { background: #fffdf9; color: #26221e; min-height: 560px; padding: 33px 42px; position: relative; box-shadow: 14px 15px 0 #dfd3c5; transform: rotate(1.1deg); }
+      .report-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .88fr); gap: clamp(44px, 8vw, 94px); align-items: center; }
+      .report-sheet { background: #fffdf9; color: #26221e; min-height: 560px; max-width: 100%; padding: 33px 42px; position: relative; box-shadow: 14px 15px 0 #dfd3c5; transform: rotate(1.1deg); }
       .report-sheet::before { content: ""; position: absolute; inset: 16px; border: 1px solid #eee5dc; pointer-events: none; }
       .report-sheet__top, .report-sheet__footer { display: flex; justify-content: space-between; position: relative; z-index: 1; color: #a0978d; font: 9px 'DM Mono', monospace; }
       .report-stamp { color: var(--ember-orange); letter-spacing: .12em; } .report-date { text-align: right; }
@@ -266,19 +292,20 @@ function EmberLandingStyles() {
       .report-sheet__footer { position: absolute; left: 42px; right: 42px; bottom: 31px; }
       .report-pencil { position: absolute; right: 57px; bottom: 73px; color: var(--ember-orange); font: 700 18px 'Kalam', cursive; transform: rotate(-8deg); }
       .report-pencil::after { content: ""; position: absolute; width: 81px; height: 13px; border-bottom: 2px solid var(--ember-orange); left: -12px; bottom: -8px; border-radius: 50%; }
-      .report-points { display: grid; gap: 32px; } .report-point { display: grid; grid-template-columns: 50px 1fr; gap: 18px; align-items: start; border-top: 1px solid #d8cdc0; padding-top: 20px; } .report-point:first-child { border-top: 0; padding-top: 0; }
+      .report-points { display: grid; gap: 32px; } .report-point { display: grid; grid-template-columns: minmax(0, 50px) minmax(0, 1fr); gap: 18px; align-items: start; border-top: 1px solid #d8cdc0; padding-top: 20px; } .report-point:first-child { border-top: 0; padding-top: 0; }
       .report-point-number { color: var(--ember-orange); font: 11px 'DM Mono', monospace; } .report-point h3 { font: 600 20px 'Space Grotesk', sans-serif; letter-spacing: -.04em; margin: 0 0 7px; } .report-point p { color: #766d65; font-size: 13px; line-height: 1.6; margin: 0; max-width: 300px; }
       .pricing-section { background: #d9c9b7; color: #221f1c; padding: 133px 0 145px; position: relative; } .pricing-section::after { content: "a human look"; position: absolute; font: 700 22px 'Kalam', cursive; color: rgba(244,119,48,.75); transform: rotate(-8deg); right: 8%; top: 104px; }
-      .pricing-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 80px; align-items: end; padding-bottom: 66px; border-bottom: 1px solid rgba(34,31,28,.22); } .pricing-heading .section-title { max-width: 520px; } .pricing-heading-copy { color: #75695e; font-size: 15px; line-height: 1.6; max-width: 290px; margin: 0 0 4px; }
-      .pricing-main { padding: 45px 0 0; display: grid; grid-template-columns: 1.35fr .65fr; gap: 0; } .price-feature { border-right: 1px solid rgba(34,31,28,.22); padding-right: 68px; } .price-feature .eyebrow { color: #9c4c27; margin-bottom: 18px; } .price-amount { font: 600 clamp(52px, 7vw, 85px)/.9 'Space Grotesk', sans-serif; letter-spacing: -.09em; margin: 0 0 15px; } .price-amount span { color: #75695e; font-size: 18px; letter-spacing: -.03em; } .price-description { max-width: 430px; color: #695e54; font-size: 15px; line-height: 1.6; margin: 0 0 32px; }
+      .pricing-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: clamp(34px, 7vw, 80px); align-items: end; padding-bottom: 66px; border-bottom: 1px solid rgba(34,31,28,.22); } .pricing-heading .section-title { max-width: 520px; } .pricing-heading-copy { color: #75695e; font-size: 15px; line-height: 1.6; max-width: 290px; margin: 0 0 4px; }
+      .pricing-main { padding: 45px 0 0; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 0; } .price-feature { border-right: 1px solid rgba(34,31,28,.22); padding-right: 68px; min-width: 0; } .price-feature .eyebrow { color: #9c4c27; margin-bottom: 18px; } .price-amount { font: 600 clamp(52px, 7vw, 85px)/.9 'Space Grotesk', sans-serif; letter-spacing: -.09em; margin: 0 0 15px; } .price-amount span { color: #75695e; font-size: 18px; letter-spacing: -.03em; } .price-description { max-width: 430px; color: #695e54; font-size: 15px; line-height: 1.6; margin: 0 0 32px; }
       .price-list { display: grid; gap: 0; } .price-list li { list-style: none; border-top: 1px solid rgba(34,31,28,.22); padding: 16px 0; font-size: 13px; } .price-list li::before { content: "↳"; color: var(--ember-orange); margin-right: 11px; }
       .price-details { padding-left: 68px; display: grid; align-content: start; gap: 24px; } .price-detail { border-bottom: 1px solid rgba(34,31,28,.22); padding-bottom: 23px; } .price-detail span { display: block; color: #887b6e; font: 10px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 9px; } .price-detail strong { font: 500 21px 'Space Grotesk', sans-serif; letter-spacing: -.04em; }
-      .why-section { padding: 142px 0 125px; } .why-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 110px; } .why-grid .section-title { max-width: 410px; } .why-copy { color: #b0a69b; font-size: 16px; line-height: 1.68; max-width: 460px; margin: 24px 0 0; } .why-list { border-top: 1px solid var(--ember-line); } .why-item { display: grid; grid-template-columns: 55px 1fr; gap: 20px; border-bottom: 1px solid var(--ember-line); padding: 27px 0 30px; } .why-item-number { color: var(--ember-orange); font: 11px 'DM Mono', monospace; padding-top: 3px; } .why-item h3 { font: 600 22px 'Space Grotesk', sans-serif; letter-spacing: -.05em; margin: 0 0 7px; } .why-item p { color: #93897c; font-size: 13px; line-height: 1.6; margin: 0; max-width: 415px; }
-      .signoff-section { background: var(--ember-orange); color: var(--ember-ink); padding: 102px 0 109px; overflow: hidden; position: relative; } .signoff-section::before { content: ""; width: 360px; height: 360px; position: absolute; right: -50px; top: -120px; border: 1px solid rgba(23,22,21,.22); border-radius: 50%; box-shadow: 0 0 0 30px rgba(23,22,21,.04), 0 0 0 60px rgba(23,22,21,.04); } .signoff-layout { display: flex; justify-content: space-between; align-items: end; gap: 50px; position: relative; z-index: 1; } .signoff-copy { max-width: 560px; } .signoff-copy .eyebrow { color: #713b22; } .signoff-copy h2 { font: 600 clamp(37px, 5vw, 65px)/.96 'Space Grotesk', sans-serif; letter-spacing: -.08em; margin: 0; } .signoff-copy p { color: #713b22; font: italic 17px/1.55 Georgia, serif; margin: 23px 0 0; max-width: 410px; } .signature { font: 700 24px 'Kalam', cursive; transform: rotate(-5deg); padding-bottom: 8px; border-bottom: 2px solid rgba(23,22,21,.55); min-width: 140px; text-align: center; }
-      .final-section { background: #f5efe7; color: var(--ember-ink); padding: 125px 0 62px; } .final-layout { display: grid; grid-template-columns: .86fr 1.14fr; gap: 110px; align-items: start; } .final-layout .section-title { max-width: 370px; } .final-copy { color: #7c7269; font-size: 15px; line-height: 1.6; margin: 25px 0 0; max-width: 300px; } .capture-form--compact { max-width: 100%; padding-top: 15px; } .capture-form--compact .capture-fields { grid-template-columns: 1fr; gap: 17px; } .capture-form--compact label > span { color: #80766d; } .capture-form--compact input { background: transparent; border-color: #cfc1b2; color: var(--ember-ink); } .capture-form--compact input::placeholder { color: #a59b91; } .capture-form--compact input:focus { background: #fffaf4; } .capture-form--compact .ember-button { width: 100%; justify-content: space-between; background: var(--ember-ink); color: var(--ember-paper); margin-top: 18px; } .capture-form--compact .ember-button:hover { background: #35302b; } .capture-form--compact .capture-note { color: #9a9085; } .capture-success--compact { color: var(--ember-ink); border-color: #d0c1b1; background: #fffaf4; } .capture-success--compact p { color: #84796e; }
+      .why-section { padding: 142px 0 125px; } .why-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(52px, 9vw, 110px); } .why-grid .section-title { max-width: 410px; } .why-copy { color: #b0a69b; font-size: 16px; line-height: 1.68; max-width: 460px; margin: 24px 0 0; } .why-list { border-top: 1px solid var(--ember-line); min-width: 0; } .why-item { display: grid; grid-template-columns: minmax(0, 55px) minmax(0, 1fr); gap: 20px; border-bottom: 1px solid var(--ember-line); padding: 27px 0 30px; } .why-item-number { color: var(--ember-orange); font: 11px 'DM Mono', monospace; padding-top: 3px; } .why-item h3 { font: 600 22px 'Space Grotesk', sans-serif; letter-spacing: -.05em; margin: 0 0 7px; } .why-item p { color: #93897c; font-size: 13px; line-height: 1.6; margin: 0; max-width: 415px; }
+      .signoff-section { background: var(--ember-orange); color: var(--ember-ink); padding: 102px 0 109px; overflow: clip; position: relative; } .signoff-section::before { content: ""; width: 360px; height: 360px; position: absolute; right: -50px; top: -120px; border: 1px solid rgba(23,22,21,.22); border-radius: 50%; box-shadow: 0 0 0 30px rgba(23,22,21,.04), 0 0 0 60px rgba(23,22,21,.04); } .signoff-layout { display: flex; justify-content: space-between; align-items: end; gap: 50px; position: relative; z-index: 1; } .signoff-copy { max-width: 560px; } .signoff-copy .eyebrow { color: #713b22; } .signoff-copy h2 { font: 600 clamp(37px, 5vw, 65px)/.96 'Space Grotesk', sans-serif; letter-spacing: -.08em; margin: 0; } .signoff-copy p { color: #713b22; font: italic 17px/1.55 Georgia, serif; margin: 23px 0 0; max-width: 410px; } .signature { font: 700 24px 'Kalam', cursive; transform: rotate(-5deg); padding-bottom: 8px; border-bottom: 2px solid rgba(23,22,21,.55); min-width: 140px; text-align: center; }
+      .final-section { background: #f5efe7; color: var(--ember-ink); padding: 125px 0 62px; } .final-layout { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(54px, 9vw, 110px); align-items: start; } .final-layout .section-title { max-width: 370px; } .final-copy { color: #7c7269; font-size: 15px; line-height: 1.6; margin: 25px 0 0; max-width: 300px; } .capture-form--compact { max-width: 100%; min-width: 0; padding-top: 15px; } .capture-form--compact .capture-fields { grid-template-columns: minmax(0, 1fr); gap: 17px; } .capture-form--compact label > span { color: #80766d; } .capture-form--compact input { background: transparent; border-color: #cfc1b2; color: var(--ember-ink); } .capture-form--compact input::placeholder { color: #a59b91; } .capture-form--compact input:focus { background: #fffaf4; } .capture-form--compact .ember-button { width: 100%; justify-content: space-between; background: var(--ember-ink); color: var(--ember-paper); margin-top: 18px; } .capture-form--compact .ember-button:hover { background: #35302b; } .capture-form--compact .capture-note { color: #9a9085; } .capture-success--compact { color: var(--ember-ink); border-color: #d0c1b1; background: #fffaf4; } .capture-success--compact p { color: #84796e; }
       .ember-footer { border-top: 1px solid #d9cfc4; margin-top: 104px; padding-top: 22px; display: flex; align-items: center; justify-content: space-between; color: #978d83; font: 10px 'DM Mono', monospace; } .footer-mark { color: #514941; display: inline-flex; align-items: center; gap: 8px; font: 600 14px 'Space Grotesk', sans-serif; }
       .reveal { animation: rise-in .8s cubic-bezier(.2,.75,.2,1) both; } .reveal-delay-1 { animation-delay: .12s; } .reveal-delay-2 { animation-delay: .23s; } .reveal-delay-3 { animation-delay: .34s; } @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-      @media (max-width: 800px) { .ember-shell { width: min(100% - 38px, 620px); } .ember-topbar { height: 70px; } .ember-hero { padding: 72px 0 90px; } .hero-grid, .report-layout, .why-grid, .final-layout { grid-template-columns: 1fr; gap: 58px; } .hero-art { min-height: 360px; order: -1; } .hero-mark { transform: scale(2.25); } .hero-art::before { width: 285px; height: 285px; } .hero-art::after { width: 360px; height: 360px; } .hero-orbit { width: 330px; height: 330px; } .hero-scribble { right: 13%; bottom: 5px; } .scroll-cue { display: none; } .section-intro, .steps-header, .pricing-heading { display: block; } .section-intro-copy, .steps-header-copy, .pricing-heading-copy { margin-top: 22px; } .blindspot-section, .report-section, .why-section { padding: 95px 0 105px; } .leaderboard-wrap { padding: 0; margin-top: 50px; } .leaderboard-note { right: -3px; top: -65px; font-size: 17px; width: 145px; } .note-line { left: -77px; top: 16px; } .member-row { grid-template-columns: 25px 30px 1fr 88px; gap: 9px; padding: 0 8px; } .member-active { grid-column: 3 / 5; grid-row: 2; text-align: left; margin-top: -23px; margin-left: 40px; } .member-row { min-height: 72px; } .leaderboard-rows { padding: 5px 11px; } .leaderboard-foot { padding-left: 20px; padding-right: 20px; } .steps-section { padding: 90px 0 100px; } .steps-header { padding-bottom: 34px; } .steps-grid { grid-template-columns: 1fr; } .step, .step + .step { border-right: 0; border-bottom: 1px solid var(--ember-line); padding: 28px 0 31px; min-height: 0; } .step:last-child { border-bottom: 0; } .step-number { margin-bottom: 18px; } .step-arrow { right: 4px; top: 28px; } .report-sheet { min-height: 525px; padding: 28px 25px; } .report-sheet__title { margin-top: 65px; } .report-sheet__title strong { font-size: 36px; } .report-sheet__footer { left: 25px; right: 25px; } .report-layout { gap: 78px; } .pricing-section { padding: 95px 0 108px; } .pricing-section::after { top: 48px; right: 9%; } .pricing-main { grid-template-columns: 1fr; gap: 42px; } .price-feature { border-right: 0; border-bottom: 1px solid rgba(34,31,28,.22); padding: 0 0 42px; } .price-details { padding-left: 0; } .signoff-section { padding: 82px 0 88px; } .signoff-layout { display: block; } .signature { margin-top: 38px; width: 145px; } .final-section { padding: 90px 0 45px; } .final-layout { gap: 32px; } .ember-footer { margin-top: 75px; align-items: flex-start; gap: 20px; } }
+      @media (max-width: 980px) { .ember-shell { width: min(100% - 42px, 720px); } .ember-topbar { min-height: 74px; } .hero-grid, .report-layout, .why-grid, .final-layout { grid-template-columns: minmax(0, 1fr); gap: 58px; } .hero-art { min-height: 410px; order: -1; } .hero-mark { transform: scale(2.55); } .hero-art::before { width: 310px; height: 310px; } .hero-art::after { width: 390px; height: 390px; } .hero-orbit { width: 350px; height: 350px; } .hero-scribble { right: 15%; bottom: 8px; } .scroll-cue { display: none; } .section-intro, .steps-header, .pricing-heading { display: block; } .section-intro-copy, .steps-header-copy, .pricing-heading-copy { margin-top: 22px; } .blindspot-section, .report-section, .why-section { padding: 105px 0 115px; } .leaderboard-wrap { padding: 0; margin-top: 50px; } .leaderboard-note { right: -3px; top: -65px; font-size: 17px; width: 145px; } .note-line { left: -77px; top: 16px; } .report-sheet { max-width: 650px; margin: 0 auto; width: 100%; } .steps-section { padding: 90px 0 100px; } .steps-header { padding-bottom: 34px; } .pricing-section { padding: 105px 0 118px; } .pricing-section::after { top: 48px; right: 9%; } .pricing-main { grid-template-columns: minmax(0, 1fr); gap: 42px; } .price-feature { border-right: 0; border-bottom: 1px solid rgba(34,31,28,.22); padding: 0 0 42px; } .price-details { padding-left: 0; } .signoff-section { padding: 82px 0 88px; } .signoff-layout { display: block; } .signature { margin-top: 38px; width: 145px; } .final-section { padding: 90px 0 45px; } .final-layout { gap: 32px; } .ember-footer { margin-top: 75px; align-items: flex-start; gap: 20px; } }
+      @media (max-width: 640px) { .ember-shell { width: min(100% - 38px, 620px); } .ember-topbar { min-height: 70px; gap: 10px; } .skool-context-badge { padding: 4px; margin-left: auto; } .skool-context-badge > span:not(.skool-mark) { display: none; } .top-cta { font-size: 11px; white-space: nowrap; } .ember-hero { padding: 72px 0 90px; } .hero-art { min-height: 360px; } .hero-mark { transform: scale(2.25); } .hero-art::before { width: 285px; height: 285px; } .hero-art::after { width: 360px; height: 360px; } .hero-orbit { width: 330px; height: 330px; } .hero-scribble { right: 13%; bottom: 5px; } .capture-fields { grid-template-columns: minmax(0, 1fr); gap: 14px; } .member-row { grid-template-columns: minmax(0, 25px) minmax(0, 30px) minmax(0, 1fr) minmax(0, 88px); gap: 9px; padding: 0 8px; } .member-active { grid-column: 3 / 5; grid-row: 2; text-align: left; margin-top: -23px; margin-left: 40px; } .member-row { min-height: 72px; } .leaderboard-rows { padding: 5px 11px; } .leaderboard-foot { padding-left: 20px; padding-right: 20px; } .steps-grid { grid-template-columns: minmax(0, 1fr); } .step, .step + .step { border-right: 0; border-bottom: 1px solid var(--ember-line); padding: 28px 0 31px; min-height: 0; } .step:last-child { border-bottom: 0; } .step-number { margin-bottom: 18px; } .step-arrow { right: 4px; top: 28px; } .report-sheet { min-height: 525px; padding: 28px 25px; } .report-sheet__title { margin-top: 65px; } .report-sheet__title strong { font-size: 36px; } .report-sheet__footer { left: 25px; right: 25px; } .report-layout { gap: 78px; } .price-amount span { display: block; margin-top: 8px; } .ember-footer { flex-wrap: wrap; } .ember-footer span:nth-child(2) { order: 3; flex-basis: 100%; } }
       @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     `}</style>
   );
@@ -289,8 +316,12 @@ export function EmberLanding() {
     <main className="ember-page">
       <EmberLandingStyles />
       <header className="ember-shell ember-topbar">
-        <a className="ember-wordmark" href="#top" aria-label="Ember home"><EmberMark small />Ember</a>
-        <a className="top-cta" href="#report">Get the report <Arrow /></a>
+        <a className="ember-wordmark" href="#top" aria-label="Ember for Skool communities home">
+          <EmberMark small />
+          <span className="ember-brand-copy"><span>Ember</span><small>for Skool communities</small></span>
+        </a>
+        <SkoolContextBadge />
+        <a className="top-cta" href="#report">Get my community report <Arrow /></a>
       </header>
 
       <section className="ember-shell ember-hero" id="top">
@@ -298,7 +329,7 @@ export function EmberLanding() {
           <div className="reveal">
             <Eyebrow>For Skool community owners</Eyebrow>
             <h1 className="hero-title">Your leaderboard shows who&apos;s winning. It doesn&apos;t show who&apos;s <em>slipping away.</em></h1>
-            <p className="hero-deck">A member can be ranked near the top and still not log in for 11 days. Ember looks past the points and tells you who might need a thoughtful nudge.</p>
+            <p className="hero-deck">A Skool community member can be ranked near the top and still not log in for 11 days. Ember looks past the points and tells you who might need a thoughtful nudge, so your community can feel personal at every level.</p>
             <CaptureForm />
           </div>
           <div className="hero-art reveal reveal-delay-2" aria-label="Ember nested mark surrounded by a warm orbit">
@@ -359,9 +390,9 @@ export function EmberLanding() {
 
       <section className="why-section">
         <div className="ember-shell why-grid">
-          <div className="reveal"><Eyebrow>05 / Why Ember</Eyebrow><h2 className="section-title">Close enough to notice. Small enough to care.</h2><p className="why-copy">Ember is for owners who know their members by name and do not want that feeling replaced by another automated growth machine.</p></div>
+          <div className="reveal"><Eyebrow>05 / Why Ember for Skool</Eyebrow><h2 className="section-title">Close enough to notice. Small enough to care.</h2><p className="why-copy">Ember is built around Skool communities for owners who know their members by name and do not want that feeling replaced by another automated growth machine.</p></div>
           <div className="why-list">
-            <div className="why-item reveal reveal-delay-1"><span className="why-item-number">01</span><div><h3>Skool-specific by choice</h3><p>We know where the useful clues live: the leaderboard, the classroom, the wins, and the conversations between them.</p></div></div>
+            <div className="why-item reveal reveal-delay-1"><span className="why-item-number">01</span><div><h3>Skool-specific by choice</h3><p>We know where the useful clues live in a Skool community: the leaderboard, the classroom, the wins, and the conversations between them.</p></div></div>
             <div className="why-item reveal reveal-delay-2"><span className="why-item-number">02</span><div><h3>Founder-delivered work</h3><p>The person who notices the pattern is the person who writes your report. No handoff to a faceless team.</p></div></div>
             <div className="why-item reveal reveal-delay-3"><span className="why-item-number">03</span><div><h3>A narrow scope</h3><p>We do not build your funnel, run your content, or tell you how to lead. We look for the quiet member and hand you the thread.</p></div></div>
           </div>
