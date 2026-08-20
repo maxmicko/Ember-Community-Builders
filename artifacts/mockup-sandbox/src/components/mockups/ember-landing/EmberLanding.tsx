@@ -183,6 +183,7 @@ function EmberLandingStyles() {
       @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
       :root { --ember-ink: #171615; --ember-paper: #f3ede4; --ember-paper-deep: #e8ddcf; --ember-orange: #f47730; --ember-gold: #e6a83d; --ember-muted: #948b80; --ember-line: rgba(243, 237, 228, .16); }
       .ember-page { background: var(--ember-ink); color: var(--ember-paper); font-family: 'DM Sans', sans-serif; min-height: 100dvh; overflow-wrap: anywhere; }
+      .ember-page > section { height: auto; min-height: 0; max-width: 100%; }
       .ember-page *, .ember-page *::before, .ember-page *::after { box-sizing: border-box; }
       .ember-page::before { content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
       .ember-shell { width: min(1180px, calc(100% - 48px)); max-width: 100%; margin: 0 auto; }
@@ -191,6 +192,7 @@ function EmberLandingStyles() {
       .ember-brand-copy { display: grid; gap: 2px; line-height: 1; }
       .ember-brand-copy small { color: #9a9085; font: 9px 'DM Mono', monospace; letter-spacing: .02em; white-space: nowrap; }
       .skool-context-badge { display: inline-flex; align-items: center; gap: 8px; color: #c4b9ac; border: 1px solid #45413c; border-radius: 999px; padding: 6px 11px 6px 7px; font: 10px 'DM Mono', monospace; white-space: nowrap; margin-left: auto; }
+      .skool-logo-image { display: block; width: 45px; height: 15px; object-fit: contain; object-position: left center; flex: 0 0 auto; }
       .skool-mark { display: inline-flex; width: 20px; height: 20px; flex: 0 0 20px; color: var(--ember-orange); }
       .skool-mark svg { width: 100%; height: 100%; }
       .top-cta { color: var(--ember-paper); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; font-size: 13px; border-bottom: 1px solid var(--ember-orange); padding: 5px 0 6px; transition: color .25s ease, border-color .25s ease; }
@@ -226,11 +228,17 @@ function EmberLandingStyles() {
       .arrow-icon svg { width: 100%; height: 100%; }
       .arrow-icon--dark { color: #5f5953; width: 14px; height: 14px; vertical-align: middle; margin-left: 4px; }
       .capture-note { color: #777069; font-size: 11px; margin: 14px 0 0 2px; }
+      .validation-strip { display: flex; align-items: center; gap: 0; margin-top: 22px; color: #8f867c; font: 10px 'DM Mono', monospace; }
+      .face { width: 25px; height: 25px; display: inline-flex; align-items: center; justify-content: center; margin-right: -5px; border: 2px solid var(--ember-ink); border-radius: 50%; color: #211d19; font: 700 8px 'DM Mono', monospace; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+      .face--one { background: #efb18e; transform: rotate(-8deg); }
+      .face--two { background: #e4d0aa; transform: translateY(-2px) rotate(5deg); }
+      .face--three { background: #a9c8c1; transform: rotate(-4deg); }
+      .validation-copy { margin-left: 13px; max-width: 250px; line-height: 1.35; }
       .capture-success { display: flex; gap: 14px; align-items: center; max-width: 560px; border: 1px solid #4d4944; background: #22201e; padding: 22px 24px; }
       .success-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--ember-orange); box-shadow: 0 0 0 6px rgba(244,119,48,.12); flex: 0 0 auto; }
       .capture-success strong { font: 600 16px 'Space Grotesk', sans-serif; }
       .capture-success p { color: #9f968b; margin: 7px 0 0; font-size: 13px; }
-      .hero-art { position: relative; padding: clamp(116px, 14vw, 190px) 0; display: flex; align-items: center; justify-content: center; }
+      .hero-art { position: relative; padding: clamp(92px, 11vw, 150px) 0; display: flex; align-items: center; justify-content: center; }
       .hero-art::before { content: ""; position: absolute; width: min(390px, 100%); aspect-ratio: 1; border: 1px solid rgba(230,168,61,.22); border-radius: 50%; }
       .hero-art::after { content: ""; position: absolute; width: min(500px, 100%); aspect-ratio: 1; border: 1px solid rgba(244,119,48,.1); border-radius: 50%; }
       .hero-orbit { position: absolute; width: min(450px, 100%); aspect-ratio: 1; border: 1px dashed rgba(230,168,61,.25); border-radius: 50%; transform: rotate(-22deg); }
@@ -245,7 +253,7 @@ function EmberLandingStyles() {
       .scroll-cue span { display: block; width: 30px; height: 1px; background: #6f675e; }
       .paper-section { background: var(--ember-paper); color: var(--ember-ink); position: relative; }
       .paper-section::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 13px; background: repeating-linear-gradient(145deg, transparent 0 13px, rgba(23,22,21,.035) 14px 15px, transparent 16px 25px); opacity: .6; }
-      .blindspot-section { padding: 135px 0 145px; }
+      .blindspot-section { padding: 104px 0 112px; }
       .section-intro { display: flex; justify-content: space-between; align-items: end; gap: 60px; margin-bottom: 62px; }
       .section-title { font: 600 clamp(36px, 4.8vw, 63px)/1 'Space Grotesk', sans-serif; letter-spacing: -.07em; margin: 0; max-width: 640px; }
       .section-title em { color: var(--ember-orange); font-style: normal; }
@@ -277,7 +285,7 @@ function EmberLandingStyles() {
       .leaderboard-note { position: absolute; z-index: 2; right: -2px; top: 42%; width: 175px; color: var(--ember-orange); font: 700 20px/1.08 'Kalam', cursive; transform: rotate(8deg); }
       .note-line { width: 82px; height: 43px; display: block; border-top: 2px solid var(--ember-orange); border-radius: 50%; transform: rotate(-15deg); position: absolute; left: -78px; top: 20px; }
       .note-line::after { content: ""; position: absolute; width: 11px; height: 11px; border-left: 2px solid var(--ember-orange); border-bottom: 2px solid var(--ember-orange); transform: rotate(25deg); left: -2px; top: -7px; }
-      .steps-section { background: #201e1b; padding: 115px 0 135px; }
+      .steps-section { background: #201e1b; padding: 104px 0 112px; }
       .steps-section .section-title { color: var(--ember-paper); max-width: 650px; }
       .steps-header { display: flex; justify-content: space-between; align-items: end; border-bottom: 1px solid var(--ember-line); padding-bottom: 52px; }
       .steps-header-copy { max-width: 270px; color: #978c80; font-size: 14px; line-height: 1.55; margin: 0 0 4px; }
@@ -288,7 +296,7 @@ function EmberLandingStyles() {
       .step h3 { font: 600 25px 'Space Grotesk', sans-serif; letter-spacing: -.05em; margin: 0 0 12px; }
       .step p { max-width: 240px; color: #9c9285; font-size: 13px; line-height: 1.6; margin: 0; }
       .step-arrow { position: absolute; right: 33px; top: 52px; color: #5d554b; font-size: 25px; }
-      .report-section { padding: 145px 0 155px; }
+      .report-section { padding: 110px 0 122px; }
       .report-intro { max-width: 560px; margin-bottom: 68px; }
       .report-intro p:not(.eyebrow) { max-width: 470px; color: #746c64; font-size: 16px; line-height: 1.65; margin: 28px 0 0; }
       .report-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .88fr); gap: clamp(44px, 8vw, 94px); align-items: center; }
@@ -307,12 +315,12 @@ function EmberLandingStyles() {
       .report-pencil::after { content: ""; position: absolute; width: 81px; height: 13px; border-bottom: 2px solid var(--ember-orange); left: -12px; bottom: -8px; border-radius: 50%; }
       .report-points { display: grid; gap: 32px; } .report-point { display: grid; grid-template-columns: minmax(0, 50px) minmax(0, 1fr); gap: 18px; align-items: start; border-top: 1px solid #d8cdc0; padding-top: 20px; } .report-point:first-child { border-top: 0; padding-top: 0; }
       .report-point-number { color: var(--ember-orange); font: 11px 'DM Mono', monospace; } .report-point h3 { font: 600 20px 'Space Grotesk', sans-serif; letter-spacing: -.04em; margin: 0 0 7px; } .report-point p { color: #766d65; font-size: 13px; line-height: 1.6; margin: 0; max-width: 300px; }
-      .pricing-section { background: #d9c9b7; color: #221f1c; padding: 133px 0 145px; position: relative; } .pricing-section::after { content: "a human look"; position: absolute; font: 700 22px 'Kalam', cursive; color: rgba(244,119,48,.75); transform: rotate(-8deg); right: 8%; top: 104px; }
+      .pricing-section { background: #d9c9b7; color: #221f1c; padding: 110px 0 122px; position: relative; } .pricing-section::after { content: "a human look"; position: absolute; font: 700 22px 'Kalam', cursive; color: rgba(244,119,48,.75); transform: rotate(-8deg); right: 8%; top: 82px; }
       .pricing-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: clamp(34px, 7vw, 80px); align-items: end; padding-bottom: 66px; border-bottom: 1px solid rgba(34,31,28,.22); } .pricing-heading .section-title { max-width: 520px; } .pricing-heading-copy { color: #75695e; font-size: 15px; line-height: 1.6; max-width: 290px; margin: 0 0 4px; }
       .pricing-main { padding: 45px 0 0; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 0; } .price-feature { border-right: 1px solid rgba(34,31,28,.22); padding-right: 68px; min-width: 0; } .price-feature .eyebrow { color: #9c4c27; margin-bottom: 18px; } .price-amount { font: 600 clamp(52px, 7vw, 85px)/.9 'Space Grotesk', sans-serif; letter-spacing: -.09em; margin: 0 0 15px; } .price-amount span { color: #75695e; font-size: 18px; letter-spacing: -.03em; } .price-description { max-width: 430px; color: #695e54; font-size: 15px; line-height: 1.6; margin: 0 0 32px; }
       .price-list { display: grid; gap: 0; } .price-list li { list-style: none; border-top: 1px solid rgba(34,31,28,.22); padding: 16px 0; font-size: 13px; } .price-list li::before { content: "↳"; color: var(--ember-orange); margin-right: 11px; }
       .price-details { padding-left: 68px; display: grid; align-content: start; gap: 24px; min-width: 0; } .price-detail { border-bottom: 1px solid rgba(34,31,28,.22); padding-bottom: 23px; } .price-detail span { display: block; color: #887b6e; font: 10px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 9px; } .price-detail strong { font: 500 21px 'Space Grotesk', sans-serif; letter-spacing: -.04em; overflow-wrap: anywhere; }
-      .why-section { padding: 142px 0 125px; } .why-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(52px, 9vw, 110px); } .why-grid .section-title { max-width: 410px; } .why-copy { color: #b0a69b; font-size: 16px; line-height: 1.68; max-width: 460px; margin: 24px 0 0; } .why-list { border-top: 1px solid var(--ember-line); min-width: 0; } .why-item { display: grid; grid-template-columns: minmax(0, 55px) minmax(0, 1fr); gap: 20px; border-bottom: 1px solid var(--ember-line); padding: 27px 0 30px; } .why-item-number { color: var(--ember-orange); font: 11px 'DM Mono', monospace; padding-top: 3px; } .why-item h3 { font: 600 22px 'Space Grotesk', sans-serif; letter-spacing: -.05em; margin: 0 0 7px; } .why-item p { color: #93897c; font-size: 13px; line-height: 1.6; margin: 0; max-width: 415px; }
+      .why-section { padding: 112px 0 108px; } .why-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(52px, 9vw, 110px); } .why-grid .section-title { max-width: 410px; } .why-copy { color: #b0a69b; font-size: 16px; line-height: 1.68; max-width: 460px; margin: 24px 0 0; } .why-list { border-top: 1px solid var(--ember-line); min-width: 0; } .why-item { display: grid; grid-template-columns: minmax(0, 55px) minmax(0, 1fr); gap: 20px; border-bottom: 1px solid var(--ember-line); padding: 27px 0 30px; } .why-item-number { color: var(--ember-orange); font: 11px 'DM Mono', monospace; padding-top: 3px; } .why-item h3 { font: 600 22px 'Space Grotesk', sans-serif; letter-spacing: -.05em; margin: 0 0 7px; } .why-item p { color: #93897c; font-size: 13px; line-height: 1.6; margin: 0; max-width: 415px; }
       .signoff-section { background: var(--ember-orange); color: var(--ember-ink); padding: 102px 0 109px; overflow: clip; position: relative; } .signoff-section::before { content: ""; width: 360px; height: 360px; position: absolute; right: -50px; top: -120px; border: 1px solid rgba(23,22,21,.22); border-radius: 50%; box-shadow: 0 0 0 30px rgba(23,22,21,.04), 0 0 0 60px rgba(23,22,21,.04); } .signoff-layout { display: flex; justify-content: space-between; align-items: end; gap: 50px; position: relative; z-index: 1; } .signoff-copy { max-width: 560px; } .signoff-copy .eyebrow { color: #713b22; } .signoff-copy h2 { font: 600 clamp(37px, 5vw, 65px)/.96 'Space Grotesk', sans-serif; letter-spacing: -.08em; margin: 0; } .signoff-copy p { color: #713b22; font: italic 17px/1.55 Georgia, serif; margin: 23px 0 0; max-width: 410px; } .signature { font: 700 24px 'Kalam', cursive; transform: rotate(-5deg); padding-bottom: 8px; border-bottom: 2px solid rgba(23,22,21,.55); min-width: 140px; text-align: center; }
       .final-section { background: #f5efe7; color: var(--ember-ink); padding: 125px 0 62px; } .final-layout { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(54px, 9vw, 110px); align-items: start; } .final-layout .section-title { max-width: 370px; } .final-copy { color: #7c7269; font-size: 15px; line-height: 1.6; margin: 25px 0 0; max-width: 300px; } .capture-form--compact { max-width: 100%; min-width: 0; padding-top: 15px; } .capture-form--compact .capture-fields { grid-template-columns: minmax(0, 1fr); gap: 17px; } .capture-form--compact label > span { color: #80766d; } .capture-form--compact input { background: transparent; border-color: #cfc1b2; color: var(--ember-ink); } .capture-form--compact input::placeholder { color: #a59b91; } .capture-form--compact input:focus { background: #fffaf4; } .capture-form--compact .ember-button { width: 100%; justify-content: space-between; background: var(--ember-ink); color: var(--ember-paper); margin-top: 18px; } .capture-form--compact .ember-button:hover { background: #35302b; } .capture-form--compact .capture-note { color: #9a9085; } .capture-success--compact { color: var(--ember-ink); border-color: #d0c1b1; background: #fffaf4; } .capture-success--compact p { color: #84796e; }
       .ember-footer { border-top: 1px solid #d9cfc4; margin-top: 104px; padding-top: 22px; display: flex; align-items: center; justify-content: space-between; color: #978d83; font: 10px 'DM Mono', monospace; } .footer-mark { color: #514941; display: inline-flex; align-items: center; gap: 8px; font: 600 14px 'Space Grotesk', sans-serif; }
@@ -344,6 +352,7 @@ export function EmberLanding() {
             <h1 className="hero-title">Churn starts quietly. Ember finds the members your Skool leaderboard is <em>hiding.</em></h1>
             <p className="hero-deck">They are still ranked, still visible, and already gone in every way that matters. Ember tracks the activity funnel in your Skool community, shows you what vanished, and only gets paid when the member comes back.</p>
             <CaptureForm />
+            <ValidationFaces />
           </div>
           <div className="hero-art reveal reveal-delay-2" aria-label="Ember nested mark surrounded by a warm orbit">
             <span className="hero-orbit" /><span className="hero-glow" /><EmberMark /><span className="hero-scribble">there you are</span>
@@ -425,6 +434,7 @@ export function EmberLanding() {
           <div className="final-layout">
             <div><Eyebrow>Start with a Skool retention look</Eyebrow><h2 className="section-title">See who your leaderboard is hiding.</h2><p className="final-copy">Give Ember seven days and your Skool community URL. We will send back the Ghost Member Report and a clear next move.</p></div>
             <CaptureForm compact ctaLabel="Get my Skool retention report" />
+            <ValidationFaces />
           </div>
           <footer className="ember-footer"><span className="footer-mark"><EmberMark small />Ember</span><span>For Skool community owners · A small founder-led studio</span><span>© 2024</span></footer>
         </div>
