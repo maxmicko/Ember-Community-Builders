@@ -327,8 +327,14 @@ function EmberLandingStyles() {
       .reveal { animation: rise-in .8s cubic-bezier(.2,.75,.2,1) both; } .reveal-delay-1 { animation-delay: .12s; } .reveal-delay-2 { animation-delay: .23s; } .reveal-delay-3 { animation-delay: .34s; } @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
       @media (min-width: 981px) {
         .ember-page > section { min-height: clamp(640px, 56.25vw, 760px); display: flex; align-items: center; }
-        .ember-hero { padding: 56px 0 70px; }
-        .hero-art { padding: 70px 0; }
+        .ember-hero { padding: 32px 0 40px; }
+        .hero-title { font-size: clamp(44px, 5.15vw, 70px); max-width: 660px; }
+        .hero-deck { font-size: 15px; line-height: 1.52; margin: 24px 0 22px; max-width: 470px; }
+        .capture-form input { height: 48px; }
+        .ember-button { min-height: 46px; margin-top: 10px; }
+        .capture-note { margin-top: 9px; }
+        .validation-strip { margin-top: 14px; }
+        .hero-art { padding: 46px 0; }
         .blindspot-section, .steps-section, .report-section, .pricing-section, .why-section, .signoff-section, .final-section { padding-top: 70px; padding-bottom: 70px; }
         .section-intro { margin-bottom: 36px; }
         .steps-header { padding-bottom: 34px; }
