@@ -189,10 +189,11 @@ function EmberLandingStyles() {
       .ember-shell { width: min(1180px, calc(100% - 48px)); max-width: 100%; margin: 0 auto; }
       .ember-topbar { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid var(--ember-line); position: relative; z-index: 3; }
       .ember-wordmark { display: inline-flex; align-items: center; gap: 12px; color: var(--ember-paper); text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.04em; min-width: 0; }
+      .ember-wordmark .ember-mark--small { flex: 0 0 24px; }
       .ember-brand-copy { display: grid; gap: 2px; line-height: 1; }
       .ember-brand-copy small { color: #9a9085; font: 9px 'DM Mono', monospace; letter-spacing: .02em; white-space: nowrap; }
       .skool-context-badge { display: inline-flex; align-items: center; gap: 8px; color: #c4b9ac; border: 1px solid #45413c; border-radius: 999px; padding: 6px 11px 6px 7px; font: 10px 'DM Mono', monospace; white-space: nowrap; margin-left: auto; }
-      .skool-logo-image { display: block; width: 45px; height: 15px; object-fit: contain; object-position: left center; flex: 0 0 auto; }
+      .skool-logo-image { display: block; width: 52px; height: 20px; object-fit: contain; object-position: center; flex: 0 0 52px; padding: 2px 4px; background: #f5f3ee; border-radius: 4px; }
       .skool-mark { display: inline-flex; width: 20px; height: 20px; flex: 0 0 20px; color: var(--ember-orange); }
       .skool-mark svg { width: 100%; height: 100%; }
       .top-cta { color: var(--ember-paper); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; font-size: 13px; border-bottom: 1px solid var(--ember-orange); padding: 5px 0 6px; transition: color .25s ease, border-color .25s ease; }
@@ -228,12 +229,12 @@ function EmberLandingStyles() {
       .arrow-icon svg { width: 100%; height: 100%; }
       .arrow-icon--dark { color: #5f5953; width: 14px; height: 14px; vertical-align: middle; margin-left: 4px; }
       .capture-note { color: #777069; font-size: 11px; margin: 14px 0 0 2px; }
-      .validation-strip { display: flex; align-items: center; gap: 0; margin-top: 22px; color: #8f867c; font: 10px 'DM Mono', monospace; }
+      .validation-strip { display: flex; flex-wrap: nowrap; align-items: center; gap: 0; margin-top: 22px; color: #8f867c; font: 10px 'DM Mono', monospace; white-space: nowrap; }
       .face { width: 25px; height: 25px; display: inline-flex; align-items: center; justify-content: center; margin-right: -5px; border: 2px solid var(--ember-ink); border-radius: 50%; color: #211d19; font: 700 8px 'DM Mono', monospace; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
       .face--one { background: #efb18e; transform: rotate(-8deg); }
       .face--two { background: #e4d0aa; transform: translateY(-2px) rotate(5deg); }
       .face--three { background: #a9c8c1; transform: rotate(-4deg); }
-      .validation-copy { margin-left: 13px; max-width: 250px; line-height: 1.35; }
+      .validation-copy { margin-left: 13px; max-width: 250px; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; }
       .capture-success { display: flex; gap: 14px; align-items: center; max-width: 560px; border: 1px solid #4d4944; background: #22201e; padding: 22px 24px; }
       .success-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--ember-orange); box-shadow: 0 0 0 6px rgba(244,119,48,.12); flex: 0 0 auto; }
       .capture-success strong { font: 600 16px 'Space Grotesk', sans-serif; }
@@ -326,7 +327,7 @@ function EmberLandingStyles() {
       .ember-footer { border-top: 1px solid #d9cfc4; margin-top: 104px; padding-top: 22px; display: flex; align-items: center; justify-content: space-between; color: #978d83; font: 10px 'DM Mono', monospace; } .footer-mark { color: #514941; display: inline-flex; align-items: center; gap: 8px; font: 600 14px 'Space Grotesk', sans-serif; }
       .reveal { animation: rise-in .8s cubic-bezier(.2,.75,.2,1) both; } .reveal-delay-1 { animation-delay: .12s; } .reveal-delay-2 { animation-delay: .23s; } .reveal-delay-3 { animation-delay: .34s; } @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
       @media (min-width: 981px) {
-        .ember-page > section { min-height: clamp(640px, 56.25vw, 760px); display: flex; align-items: center; }
+        .ember-page > section { min-height: clamp(720px, 56.25vw, 820px); display: flex; align-items: center; }
         .ember-hero { padding: 32px 0 40px; }
         .hero-title { font-size: clamp(44px, 5.15vw, 70px); max-width: 660px; }
         .hero-deck { font-size: 15px; line-height: 1.52; margin: 24px 0 22px; max-width: 470px; }
